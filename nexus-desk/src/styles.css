@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --color-bg: var(--nx-bg);
+  --color-surface: var(--nx-surface);
+  --color-fg: var(--nx-fg);
+  --color-muted: var(--nx-muted);
+  --color-line: var(--nx-line);
+  --color-accent: var(--nx-accent);
+  --color-accent-fg: var(--nx-accent-fg);
+  --color-ok: var(--nx-ok);
+  --color-ok-soft: var(--nx-ok-soft);
+  --color-danger: var(--nx-danger);
+  --color-plat-x: #1d9bf0;
+  --color-plat-threads: #1a1a1a;
+  --color-plat-bsky: #1185fe;
+  --color-plat-mast: #6364f1;
+  --color-plat-ig: #d84a6a;
+  --radius-card: 1.25rem;
+}
+
+:root,
+[data-theme="paper"] {
+  color-scheme: light;
+  --nx-bg: #f3eee4;
+  --nx-surface: #fffdf8;
+  --nx-fg: #1c1915;
+  --nx-muted: #6f675c;
+  --nx-line: #e3dac8;
+  --nx-accent: #c45c26;
+  --nx-accent-fg: #fffdf8;
+  --nx-ok: #1f6a56;
+  --nx-ok-soft: #e5f2ed;
+  --nx-danger: #8e2f2f;
+  --nx-on-plat: #fffdf8;
+}
+
+[data-theme="ink"] {
+  color-scheme: dark;
+  --nx-bg: #12110f;
+  --nx-surface: #1c1a17;
+  --nx-fg: #f4efe6;
+  --nx-muted: #a89c8c;
+  --nx-line: #322c25;
+  --nx-accent: #e08a4f;
+  --nx-accent-fg: #1c120c;
+  --nx-ok: #8fd0be;
+  --nx-ok-soft: #1a2e28;
+  --nx-danger: #f0a3a3;
+  --nx-on-plat: #fffdf8;
+  --color-plat-threads: #f4efe6;
+}
+
+@layer base {
+  html,
+  body {
+    background: var(--nx-bg);
+    color: var(--nx-fg);
+  }
+  body {
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  :focus-visible {
+    outline: 2px solid var(--nx-accent);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
